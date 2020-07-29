@@ -24,6 +24,8 @@ Route::Apiresource('/brand','Api\BrandController');
 
 Route::Apiresource('/item','Api\ItemController');
 
+
 Route::get('getCategory','Api\ItemController@getCategory');
 
 Route::post('searchItem','Api\ItemController@searchItem');
+
