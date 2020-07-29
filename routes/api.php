@@ -18,8 +18,12 @@ use Illuminate\Http\Request;
 // });
 
 
-Route::Apiresource('/categorys', 'Api\CategoryController');
+Route::Apiresource('/category', 'Api\CategoryController');
 
-Route::Apiresource('brands','Api\BrandController');
+Route::Apiresource('/brand','Api\BrandController');
 
-Route::Apiresource('items','Api\ItemController');
+Route::Apiresource('/item','Api\ItemController');
+
+Route::get('getCategory','Api\ItemController@getCategory');
+
+Route::post('searchItem','Api\ItemController@searchItem');

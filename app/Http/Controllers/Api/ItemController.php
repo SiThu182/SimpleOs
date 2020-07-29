@@ -146,6 +146,44 @@ class ItemController extends Controller
         ]);
     }
 
+     public function getCategory(){
+       
+        if($category_id=request('category_id')){
+            //dd($listing_id);
+             $categories=DB::table('items')
+                ->join('categories','categories.id','=','item.category_id')
+                ->select('item.*')
+                ->where('item.category_id', '=', $category_id)
+                ->get();
+            //dd($infos);
+        }
+        //dd($infos);
+        return response()->json([
+            'items' => $items
+        ]);
+        //
+    
+    }
+
+       public function searchItem(Request $request)
+    {
+        $item_name = request('item_name');
+        // echo $departure_time;
+        // echo $route;
+        $items = DB::table('items')
+                ->select('items.*')
+                ->where('items.item_name','like','%'.$item_name.'%','and','items.permission','=','1')
+                ->get();
+         
+                return response()->json([
+            'items' => $items 
+             ]);
+           
+       
+     
+             
+    }
+
     
 
 
